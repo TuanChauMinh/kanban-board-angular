@@ -11,6 +11,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+.board-select{
+  height: 50%;
+  font-size: 15px;
+}
 .app-header {
 	justify-content: space-between;
 	position: fixed;
