@@ -3,13 +3,8 @@
   <span class="nav-tool-items">
     <a mat-button routerLink="Home" routerLinkActive="active">Home</a>
     <a mat-button routerLink="user-management" routerLinkActive="active">User Management</a>
-    <a mat-button routerLink="add-board" routerLinkActive="active">Create New Board</a>
-    <mat-form-field class="board-select">
-      <mat-select>
-        <mat-label> Board</mat-label>
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
-  </mat-form-field>
+    <a mat-button routerLink="create-board" routerLinkActive="active">Create New Board</a>
+    <app-board-list-dropdown></app-board-list-dropdown>
   </span>
 </mat-toolbar>
 

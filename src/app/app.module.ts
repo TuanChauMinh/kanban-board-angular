@@ -8,13 +8,21 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateBoardComponent } from './create-board/create-board.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { BoardListDropdownComponent } from './components/board-list-dropdown/board-list-dropdown.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    CreateUserComponent,
+    CreateBoardComponent,
+    UserListComponent,
+    BoardListDropdownComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +32,7 @@ import { RegisterComponent } from './components/register/register.component';
     FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

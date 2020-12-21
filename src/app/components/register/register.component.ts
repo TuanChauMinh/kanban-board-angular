@@ -21,7 +21,6 @@ export class RegisterComponent implements OnInit {
   }
 
   Register(form: NgForm){
-    alert(this.newUser.username);
   }
 
 }

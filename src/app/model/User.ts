@@ -1,9 +1,5 @@
 export class User{
-  username: String;
-  password: String;
-  email: String;
+  firstName: string;
+  lastName: string;
 
-  public constructor(init?: Partial<User>) {
-    Object.assign(this, init);
-}
 }

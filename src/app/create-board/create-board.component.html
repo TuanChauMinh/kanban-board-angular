@@ -1,0 +1,18 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Create New Board</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)] = "boardName" name="boardName" matInput placeholder="Board Name">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="accent" (click) = "CreateNewBoard()" class="btn-block">Create</button>
+    </form>
+  </mat-card>
+
+</div>
