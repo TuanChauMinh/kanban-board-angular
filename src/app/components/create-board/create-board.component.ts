@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
-import { BoardService } from '../services/board-service.service';
+import { BoardService } from '../../services/board-service.service';
 @Component({
   selector: 'app-create-board',
   templateUrl: './create-board.component.html',

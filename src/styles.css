@@ -111,3 +111,10 @@ body {
 .main-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
 	padding: 0.8375em 0;
 }
+table {
+  width: 100%;
+  padding-top: 100px;
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 100px;
+}
