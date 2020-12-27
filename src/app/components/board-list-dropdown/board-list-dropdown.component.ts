@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ViewChildren } from '@angular/core';
+import { BoardInfo } from 'src/app/model/BoardInfo';
 import { BoardService } from 'src/app/services/board-service.service';
+import { HelperService } from 'src/app/services/helper.service';
+import { TaskService } from 'src/app/services/task-service.service';
+import { TaskListComponent } from '../task-list/task-list.component';
 
 @Component({
   selector: 'app-board-list-dropdown',
@@ -8,15 +12,18 @@ import { BoardService } from 'src/app/services/board-service.service';
 })
 export class BoardListDropdownComponent implements OnInit {
 
-  listBoard : string[] = [];
-  constructor(private boardService: BoardService){
+  listBoard : BoardInfo[] = [];
+
+  @Output() updateView = new EventEmitter();
+  // @ViewChild('listTask', {static: true}) private taskListComponent : TaskListComponent;
+  @ViewChildren(TaskListComponent) taskListComponent: TaskListComponent;
+  constructor(private boardService: BoardService, private taskService: TaskService, private helper: HelperService){
   }
 
   ngOnInit(): void {
     this.boardService.getListBoards().subscribe((data) => {
       data.forEach(element => {
-        console.log(element.name);
-        this.listBoard.push(element.name);
+       this.listBoard = data;
       });
 
     }, error => {
@@ -26,5 +33,19 @@ export class BoardListDropdownComponent implements OnInit {
 
   getListBoards(): void {
     var data = this.boardService.getListBoards();
+  }
+  onBoardChange(boardId: string)
+  {
+    debugger;
+    this.boardService.setCurrentBoardId(boardId);
+
+    this.helper.NotifyOther({refresh: true});
+
+    // debugger;
+    // this.taskListComponent.ngOnInit();
+    // // Load the Task of the selected board
+    // this.taskService.getTaskByBoardId(boardId);
+    // this.updateView.emit();
+
   }
 }

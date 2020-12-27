@@ -1,5 +1,6 @@
 <mat-form-field class="board-select">
-  <mat-select>
-    <mat-option *ngFor="let board of listBoard" [value]="board">{{board}}</mat-option>
+  <mat-label>Select the Board</mat-label>
+  <mat-select #boardSelect (selectionChange) = 'onBoardChange(boardSelect.value)'>
+    <mat-option *ngFor="let board of listBoard" [value]="board._id">{{board.name}}</mat-option>
   </mat-select>
 </mat-form-field>

@@ -1,8 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable, throwError} from 'rxjs';
-import {catchError, tap, map} from 'rxjs/operators';
-import { Board } from '../model/Board';
+import { throwError} from 'rxjs';
+import { BoardInfo } from '../model/BoardInfo';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +10,17 @@ export class BoardService {
 
     private boardUrl = 'http://localhost:3000/boards';
     errorMessage: string;
+    public currentBoardId : string = '';
 
     constructor(private http: HttpClient) {
     }
 
+    setCurrentBoardId(id: string){
+      this.currentBoardId = id;
+    }
+
     getListBoards(){
-      return this.http.get<Board[]>(this.boardUrl);
+      return this.http.get<BoardInfo[]>(this.boardUrl);
     }
 
     postNewBoard(name:string){

@@ -1,0 +1,40 @@
+.list {
+  background: #F4F5F7;
+  width: 258px;
+  padding: 6px;
+  margin: 5px;
+  display: inline-block;
+  webkit-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  border-radius: 4px;
+}
+.list__title {
+  color: #5E6C84;
+  font-size: 0.85714286em;
+  font-weight: 600;
+  line-height: 1.33333333;
+  margin-top: 20px;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: normal;
+  margin-top: 3px;
+  flex: 0 100 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+.list a {
+  width: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+input{
+  width: 248px;
+  padding: 5px;
+  border: 2px solid orange;
+  outline: 0;
+  background: #fff;
+  box-shadow:none;
+}

@@ -1,0 +1,22 @@
+<div #listTask class="list" (dragover)="allowDrop($event)" (drop)="drop($event)">
+  <p class="list__title"><strong>{{listSchema.name}}</strong></p>
+  <div class="cards">
+      <app-card *ngFor="let cardId of listSchema.cards" [card]="cardStore.getCard(cardId)"></app-card>
+  </div>
+
+  <div class="userSelector" *ngIf="displayAddCard">
+    <input #addCardInput type="text" (keyup.enter)="onEnter(addCardInput.value, selectUser.value);
+    addCardInput.value='';
+    displayAddCard=false;"
+    autofocus>
+    <mat-form-field>
+    <mat-label>Select User</mat-label>
+    <mat-select #selectUser>
+      <mat-option *ngFor="let user of listUser" [value]="user._id" >
+        {{user.firstname}} {{user.lastname}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+  <button mat-button class="list__newcard" (click)="toggleDisplayAddCard()">Add a task</button>
+</div>

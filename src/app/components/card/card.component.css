@@ -1,0 +1,18 @@
+p {
+  border-radius: 2px;
+  background: white;
+  margin: 0 0 6px 0;
+  padding: 6px 6px 2px 8px;
+  box-shadow: 0px 1px 2px 0px rgba(9, 30, 66, 0.25);
+  transition: background-color 140ms ease-in-out, border-color 75ms ease-in-out;
+  color: #333;
+  font-size: 14px;
+}
+input{
+  width: 248px;
+  padding: 5px;
+  border: 2px solid orange;
+  outline: 0;
+  background: #fff;
+  box-shadow:none;
+}

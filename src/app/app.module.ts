@@ -7,22 +7,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateBoardComponent } from './components/create-board/create-board.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { BoardListDropdownComponent } from './components/board-list-dropdown/board-list-dropdown.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { BoardComponent } from './components/board/board.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { CardComponent } from './components/card/card.component';
+import { BoardService } from './services/board-service.service';
+import { TaskService } from './services/task-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     CreateUserComponent,
     CreateBoardComponent,
     UserListComponent,
     BoardListDropdownComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    BoardComponent,
+    TaskListComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,7 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [BoardService, TaskService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

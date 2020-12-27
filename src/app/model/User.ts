@@ -1,7 +1,7 @@
 export class User{
   _id:string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   createdAt:string;
   updatedAt:string;
 

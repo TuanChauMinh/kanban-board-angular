@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   createNewUser(newUser: User){
-    return this.http.post<User>(this.userUrl, {firstname: newUser.firstName, lastname:newUser.lastName});
+    return this.http.post<User>(this.userUrl, {firstname: newUser.firstname, lastname:newUser.lastname});
   }
   getAllUser(){
     return this.http.get<User>(this.userUrl);
