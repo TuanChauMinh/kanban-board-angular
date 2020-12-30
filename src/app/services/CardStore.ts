@@ -7,7 +7,6 @@ export class CardStore{
 
   addCard(card : CardSchema)
   {
-    card.id = String(++this.lastid);
     this.cards[card.id] = card;
     return card.id;
   }
@@ -17,10 +16,12 @@ export class CardStore{
     return this.cards[cardId];
   }
 
-  newCard(title: string)
+  newCard(id: string, title: string, user: string)
   {
     const card : CardSchema = new CardSchema();
+    card.id = id;
     card.title = title;
+    card.user = user;
     return(this.addCard(card));
   }
 }

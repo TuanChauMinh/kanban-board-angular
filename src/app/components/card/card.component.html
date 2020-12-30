@@ -1,14 +1,27 @@
 <div>
-<p class="card" draggable="true" (dragstart)="dragStart($event)" id="{{card.id}}"
-  (click)="onSelectCard(card)"
-  (click)="toggleDisplayCard()"
-  *ngIf="displayCard"
-  displayCard=true>
+<div class="card" draggable="true" *ngIf="displayCard" (dragstart)="dragStart($event)" id="{{card.id}}"
+(click)="onSelectCard(card)"
+(click)="toggleDisplayCard()"
+displayCard=true>
+<p>
  {{card.title}}
 </p>
+<mat-label class="userCard">Assignee: {{card.user}}</mat-label>
+</div>
+
+<div *ngIf="selectCard">
 <input #addCardInput type="text" (keyup.enter)="onEnter(addCardInput.value);
   addCardInput.value ='';
   displayAddCard=true;"
   [(ngModel)]="selectCard.title"
-  *ngIf="selectCard" autofocus>
+   autofocus>
+  <mat-form-field>
+    <mat-label>Select User</mat-label>
+    <mat-select #selectUser  [(ngModel)]="user">
+      <mat-option *ngFor="let user of listUser" [value]="user"  >
+        {{user.firstname}} {{user.lastname}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
 </div>

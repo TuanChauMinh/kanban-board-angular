@@ -36,16 +36,9 @@ export class BoardListDropdownComponent implements OnInit {
   }
   onBoardChange(boardId: string)
   {
-    debugger;
     this.boardService.setCurrentBoardId(boardId);
 
     this.helper.NotifyOther({refresh: true});
-
-    // debugger;
-    // this.taskListComponent.ngOnInit();
-    // // Load the Task of the selected board
-    // this.taskService.getTaskByBoardId(boardId);
-    // this.updateView.emit();
 
   }
 }

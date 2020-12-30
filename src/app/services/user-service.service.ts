@@ -11,8 +11,8 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
-  createNewUser(newUser: User){
-    return this.http.post<User>(this.userUrl, {firstname: newUser.firstname, lastname:newUser.lastname});
+  createNewUser(firstname: string, lastname: string){
+    return this.http.post<User>(this.userUrl, {firstname: firstname, lastname: lastname});
   }
   getAllUser(){
     return this.http.get<User>(this.userUrl);

@@ -12,7 +12,7 @@
     <mat-form-field>
     <mat-label>Select User</mat-label>
     <mat-select #selectUser>
-      <mat-option *ngFor="let user of listUser" [value]="user._id" >
+      <mat-option *ngFor="let user of listUser" [value]="user"  >
         {{user.firstname}} {{user.lastname}}
       </mat-option>
     </mat-select>

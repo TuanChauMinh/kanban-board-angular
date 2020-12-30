@@ -14,19 +14,17 @@ export class TaskService {
 
   constructor(private http: HttpClient) { }
   postNewTask(title:string, status: string, board: string){
-    return this.http.post<string>(this.taskUrl, {title: title, status: status, board: board});
+    return this.http.post<any>(this.taskUrl, {title: title, status: status, board: board});
   }
 
   getTaskByBoardId(boardId: string, listSchema: ListSchema)
   {
+    return this.http.get<any>(this.taskUrl + "?boardId=" + boardId);
+  }
 
-    var listTask = listSchema;
-    // if(boardId == "")
-    // {
-    //   return listTask;
-    // }
-    // debugger;
-    return this.http.get<CardSchema[]>(this.taskUrl + "?boardid=" + boardId);
+  updateTitleById(taskId: string, newTitle: string)
+  {
+    return this.http.put<string>(this.taskUrl +"/"+taskId, {title: newTitle});
   }
 
 }

@@ -33,10 +33,12 @@ export class TaskListComponent implements OnInit {
       if(res.refresh)
       {
         var boardId = this.boardService.currentBoardId;
+        this.listSchema.cards = [];
+        debugger;
         this.taskService.getTaskByBoardId(boardId,this.listSchema).subscribe((data) => {
           data.forEach(element => {
-            debugger;
-            const cardId = this.cardStore.newCard(element.title);
+            var user = localStorage.getItem(element._id);
+            const cardId = this.cardStore.newCard(element._id, element.title,user);
             if(element.status == this.listSchema.value)
             {
               this.listSchema.cards.push(cardId);
@@ -55,12 +57,19 @@ export class TaskListComponent implements OnInit {
 
   }
 
-  onEnter(title: string, userId: string) {
+  onEnter(title: string, user: User) {
     var boardId = this.boardService.currentBoardId;
-    const cardId = this.cardStore.newCard(title);
-    this.listSchema.cards.push(cardId);
 
-    this.taskService.postNewTask(title,this.listSchema.value,boardId).subscribe();
+    this.taskService.postNewTask(title,this.listSchema.value,boardId).subscribe({
+      next: data => {
+        const cardId = this.cardStore.newCard(data._id, title, user.firstname + " " + user.lastname);
+        this.listSchema.cards.push(cardId);
+        localStorage.setItem(data._id, user.firstname + " " + user.lastname );
+      },
+      error: error => {
+
+      }
+  });
 
   }
 
@@ -70,6 +79,7 @@ export class TaskListComponent implements OnInit {
 
   drop($event) {
     $event.preventDefault();
+    debugger;
     const data = $event.dataTransfer.getData('text');
 
     let target = $event.target;
